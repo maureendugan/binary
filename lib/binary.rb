@@ -29,28 +29,11 @@ def binary(number)
   return results.join('').to_i
 end
 
-puts binary(63)
+def to_decimal(binary_string)
+  result = 0
 
-# num = 6
-
-# results = [1]
-
-# for i = 1; i <= num; i ++
-#   if results.every(1) == true
-#     new_results = [1]
-#     for j = 1; j <= results.length; j++
-#       new_results[j] = 0
-#     end
-#     results = new_results
-#   elsif results[results.length-1] == 0
-#     results[results.length-1] = 1
-#   else
-#     for k = results.length; k >= 0; k--
-#       if results[k-1] == 0
-#         results[k-1] = 1
-#         results[k] = 0
-#       end
-#     end
-#   end
-
-# end
+  until binary_string.to_i == binary(result) do
+    result += 1
+  end
+  return result
+end
