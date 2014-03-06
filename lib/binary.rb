@@ -1,0 +1,56 @@
+def binary(number)
+
+  results = [0]
+
+  for i in 1..number do
+    k = results.length
+    if results.all? {|num| num == 1}
+      new_results = [1]
+      for j in 1..k do
+          new_results[j] = 0
+      end
+      results = new_results
+    elsif results[k-1] == 0
+      results[k-1] = 1
+    else 
+      while k > 1 do
+        if results[k-1] == 0
+          results[k-1] = 1
+          for m in k..results.length-1 do
+            results[m] = 0
+          end
+          k = 0
+        else
+          k -= 1
+        end
+      end
+    end
+  end
+  return results.join('').to_i
+end
+
+puts binary(63)
+
+# num = 6
+
+# results = [1]
+
+# for i = 1; i <= num; i ++
+#   if results.every(1) == true
+#     new_results = [1]
+#     for j = 1; j <= results.length; j++
+#       new_results[j] = 0
+#     end
+#     results = new_results
+#   elsif results[results.length-1] == 0
+#     results[results.length-1] = 1
+#   else
+#     for k = results.length; k >= 0; k--
+#       if results[k-1] == 0
+#         results[k-1] = 1
+#         results[k] = 0
+#       end
+#     end
+#   end
+
+# end
